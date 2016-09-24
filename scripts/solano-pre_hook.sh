@@ -13,7 +13,7 @@ if [ "$ERLANG_VER" != "19" ]; then
   sudo dpkg -i $TMPDIR/erlang-solutions_1.0_all.deb
   sudo apt-get update
   sudo apt-get -f -y install  # Clean-up any pending installs
-  sudo apt-get -y install erlang=1:19.0-1
+  sudo apt-get -f -y install erlang=1:19.1-1 erlang-base erlang-dev erlang-parsetools
 fi
 ln -f -s /usr/lib/erlang/bin/erl $HOME/bin/
 
