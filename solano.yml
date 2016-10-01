@@ -14,6 +14,7 @@ timeout_hook: 900
 # Tests to run
 tests:
   - mix test
+  - pushd web/elm && elm test && popd
 
 # Specify language/service versions
 nodejs:

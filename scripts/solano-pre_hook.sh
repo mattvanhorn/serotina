@@ -35,6 +35,10 @@ mix deps.update phoenix
 mix deps.get
 npm install npm  # Install newer version of npm
 npm install
+npm install elm
+npm install elm-test
+pushd web/elm && elm-package install -y
+pushd tests && elm-package install -y && popd && popd
 
 # Compile
 mix compile
