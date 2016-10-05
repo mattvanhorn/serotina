@@ -2,13 +2,16 @@ module Tests exposing (..)
 
 import Test exposing (..)
 import Expect
-import String
+import Graph exposing (..)
 
 
 all : Test
 all =
-    describe "A Test Suite"
-        [ test "Addition" <|
+    describe "A Graph"
+        [ test "A single node graph" <|
             \() ->
-                Expect.equal (3 + 7) 10
+                Graph.new ([ Node 42 ])
+                    |> Graph.nodes
+                    |> List.length
+                    |> Expect.equal 1
         ]
