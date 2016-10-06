@@ -1,11 +1,7 @@
 module Graph exposing (..)
 
 import List
-
-
-type alias Node =
-    { key : Int
-    }
+import Node exposing (Node, Edge)
 
 
 type alias Graph =
@@ -21,3 +17,9 @@ new nodes =
 nodes : Graph -> List Node
 nodes graph =
     graph.nodes
+
+
+edges : Graph -> List Edge
+edges graph =
+    List.map (\node -> Node.edges node) graph.nodes
+        |> List.concat
