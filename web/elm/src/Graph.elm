@@ -25,6 +25,26 @@ edges graph =
         |> List.concat
 
 
+removeNode : Int -> Graph -> Graph
+removeNode keyToRemove graph =
+    let
+        nodes =
+            graph.nodes
+
+        remainingNodes =
+            List.filter (\node -> (node.key /= keyToRemove)) nodes
+
+        filterNeighbors : Node -> List Int
+        filterNeighbors node =
+            List.filter (\neighbor -> neighbor /= keyToRemove) node.neighbors
+
+        updateNodeNeighbors =
+            (\node -> Node node.key (filterNeighbors node))
+    in
+        new
+            (List.map updateNodeNeighbors remainingNodes)
+
+
 cartesian : Int -> Int -> Graph
 cartesian width height =
     let

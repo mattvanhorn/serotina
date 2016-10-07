@@ -36,5 +36,12 @@ all =
                         |> Graph.edges
                         |> List.length
                         |> Expect.equal 8
+            , test "a 3 x 3 graph with an island" <|
+                \() ->
+                    Graph.cartesian 3 3
+                        |> Graph.removeNode 4
+                        |> Graph.edges
+                        |> List.length
+                        |> Expect.equal 16
             ]
         ]
